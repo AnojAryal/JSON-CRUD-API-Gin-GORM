@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/anojaryal/json-crud-api-gin-gorm/controllers"
 	"github.com/anojaryal/json-crud-api-gin-gorm/initializers"
 	"github.com/gin-gonic/gin"
 )
@@ -12,10 +13,10 @@ func init() {
 
 func main() {
 	r := gin.Default()
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "HI setup completed. we are good to Go...",
-		})
-	})
+	r.POST("/posts", controllers.PostCreate)
+	r.GET("/posts", controllers.PostsIndex)
+	r.GET("/posts/:id", controllers.PostsShow)
+	r.PUT("/posts/:id", controllers.PostsUpdate)
+	r.DELETE("/posts/:id", controllers.PostsDelete)
 	r.Run()
 }
