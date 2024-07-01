@@ -1,6 +1,14 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/anojaryal/json-crud-api-gin-gorm/initializers"
+	"github.com/gin-gonic/gin"
+)
+
+func init() {
+	initializers.LoadEnvVariables()
+	initializers.ConnectToDB()
+}
 
 func main() {
 	r := gin.Default()
