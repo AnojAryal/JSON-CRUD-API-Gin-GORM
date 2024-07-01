@@ -14,7 +14,7 @@ func main() {
 	r := gin.Default()
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"message": "pong",
+			"message": "HI setup completed. we are good to Go...",
 		})
 	})
 	r.Run()
